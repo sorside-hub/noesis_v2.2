@@ -24,6 +24,20 @@
             document.documentElement.classList.add('light');
             document.documentElement.classList.remove('dark');
           }
+          // Immediate update for PWA theme-color meta on load
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute('content', t === 'dark' ? '#131313' : '#F7F7F8');
+          }
+          // Immediate update for Favicon and Apple Touch Icon on load
+          var fav = document.querySelector('link[rel="icon"]');
+          if (fav) {
+            fav.setAttribute('href', t === 'dark' ? '/logo-dark-kotak.webp' : '/logo-light-kotak.webp');
+          }
+          var appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+          if (appleIcon) {
+            appleIcon.setAttribute('href', t === 'dark' ? '/logo-dark-kotak.webp' : '/logo-light-kotak.webp');
+          }
         } catch (e) {}
       })();
     </script>
