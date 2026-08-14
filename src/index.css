@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-noesis-bg: var(--noesis-bg);
+  --color-noesis-surface: var(--noesis-surface);
+  --color-noesis-surface-hover: var(--noesis-surface-hover);
+  --color-noesis-border: var(--noesis-border);
+  --color-noesis-text: var(--noesis-text);
+  --color-noesis-muted: var(--noesis-muted);
+  --color-noesis-accent: var(--noesis-accent);
+  --color-noesis-accent-hover: var(--noesis-accent-hover);
+}
+
+:root, [data-theme="dark"], .dark {
+  color-scheme: dark;
+  --noesis-bg: #131313;
+  --noesis-surface: #1C1C1C;
+  --noesis-surface-hover: #262626;
+  --noesis-border: #303030;
+  --noesis-text: #E5E5E5;
+  --noesis-muted: #A3A3A3;
+  --noesis-accent: #4F8CFF;
+  --noesis-accent-hover: #3B75E6;
+
+  --bg-color: var(--noesis-bg);
+  --surface-color: var(--noesis-surface);
+  --surface-hover-color: var(--noesis-surface-hover);
+  --border-color: var(--noesis-border);
+  --text-main: var(--noesis-text);
+  --text-muted: var(--noesis-muted);
+  --accent-color: var(--noesis-accent);
+  --accent-hover-color: var(--noesis-accent-hover);
+}
+
+[data-theme="light"], .light {
+  color-scheme: light;
+  --noesis-bg: #F7F7F8;
+  --noesis-surface: #FFFFFF;
+  --noesis-surface-hover: #F1F3F5;
+  --noesis-border: #E5E7EB;
+  --noesis-text: #171717;
+  --noesis-muted: #6B7280;
+  --noesis-accent: #4F8CFF;
+  --noesis-accent-hover: #3B75E6;
+
+  --bg-color: var(--noesis-bg);
+  --surface-color: var(--noesis-surface);
+  --surface-hover-color: var(--noesis-surface-hover);
+  --border-color: var(--noesis-border);
+  --text-main: var(--noesis-text);
+  --text-muted: var(--noesis-muted);
+  --accent-color: var(--noesis-accent);
+  --accent-hover-color: var(--noesis-accent-hover);
+}
+
+html, body {
+  background-color: var(--noesis-bg, #131313);
+  color: var(--noesis-text, #E5E5E5);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom scrollbar for mobile feel */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--noesis-border, #303030);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--noesis-muted, #A3A3A3);
+}
+
+/* Range Slider Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #E2E8F0;
+  border-radius: 9999px;
+  outline: none;
+}
+
+[data-theme="dark"] input[type="range"],
+.dark input[type="range"] {
+  background-color: #2D2D30;
+}
+
+[data-theme="light"] input[type="range"],
+.light input[type="range"] {
+  background-color: #E2E8F0;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--noesis-accent, #4F8CFF);
+  cursor: pointer;
+  margin-top: -5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #E2E8F0;
+}
+
+[data-theme="dark"] input[type="range"]::-moz-range-track,
+.dark input[type="range"]::-moz-range-track {
+  background-color: #2D2D30;
+}
+
+[data-theme="light"] input[type="range"]::-moz-range-track,
+.light input[type="range"]::-moz-range-track {
+  background-color: #E2E8F0;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: var(--noesis-accent, #4F8CFF);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2);
+}
