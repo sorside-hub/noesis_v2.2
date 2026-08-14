@@ -40,6 +40,24 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         document.documentElement.classList.remove('dark');
       }
       localStorage.setItem(THEME_STORAGE_KEY, mode);
+
+      // Update meta theme-color dynamically for mobile PWA bar
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', mode === 'dark' ? '#131313' : '#F7F7F8');
+      }
+
+      // Update favicon dynamically
+      const favicon = document.querySelector('link[rel="icon"]');
+      if (favicon) {
+        favicon.setAttribute('href', mode === 'dark' ? '/logo-dark-kotak.webp' : '/logo-light-kotak.webp');
+      }
+
+      // Update apple-touch-icon dynamically
+      const appleTouchIcon = document.querySelector('link[rel="apple-touch-icon"]');
+      if (appleTouchIcon) {
+        appleTouchIcon.setAttribute('href', mode === 'dark' ? '/logo-dark-kotak.webp' : '/logo-light-kotak.webp');
+      }
     } catch {
       // ignore
     }
