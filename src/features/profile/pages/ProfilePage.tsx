@@ -155,9 +155,6 @@ export const ProfilePage: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xs font-semibold text-noesis-text">Mode Tema</h3>
-                <p className="text-[11px] text-noesis-muted mt-0.5">
-                  Pilih tema gelap (Dark) atau terang (Light)
-                </p>
               </div>
 
               <div className="flex items-center bg-noesis-bg p-1 rounded-xl border border-noesis-border">
