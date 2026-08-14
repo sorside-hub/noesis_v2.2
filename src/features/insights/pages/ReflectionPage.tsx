@@ -90,10 +90,6 @@ export const ReflectionPage: React.FC<ReflectionPageProps> = ({ onBack }) => {
         setThemes(fetchedThemes || []);
         setConnections(fetchedConnections || []);
         setPatterns(fetchedPatterns || []);
-
-        if (savedReflections.length > 0) {
-          setExpandedReflectionId(savedReflections[0].id);
-        }
       } catch (err: any) {
         console.error('Gagal memuat data awal Reflection:', err);
         if (isMounted) {
@@ -119,28 +115,11 @@ export const ReflectionPage: React.FC<ReflectionPageProps> = ({ onBack }) => {
     try {
       const generated = await reflectionService.generateReflections(notes);
       setReflections(generated);
-      if (generated.length > 0) {
-        setExpandedReflectionId(generated[0].id);
-      }
     } catch (err: any) {
       console.error('Gagal membuat refleksi:', err);
       setError(err?.message || 'Terjadi kesalahan saat membuat analisis refleksi.');
     } finally {
       setGenerating(false);
-    }
-  };
-
-  const handleDeleteReflection = async (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    try {
-      await reflectionService.deleteReflection(id);
-      setReflections((prev) => prev.filter((r) => r.id !== id));
-      if (expandedReflectionId === id) {
-        setExpandedReflectionId(null);
-      }
-    } catch (err) {
-      console.error('Gagal menghapus refleksi:', err);
-      setError('Gagal menghapus catatan refleksi.');
     }
   };
 
@@ -386,25 +365,18 @@ export const ReflectionPage: React.FC<ReflectionPageProps> = ({ onBack }) => {
             {reflections.map((refl) => {
               const isExpanded = expandedReflectionId === refl.id;
               return (
-                <div
-                  key={refl.id}
-                  className={`bg-noesis-surface border transition-all duration-200 rounded-2xl shadow-xs ${
-                    isExpanded ? 'border-noesis-border bg-noesis-surface-hover' : 'border-noesis-border hover:bg-noesis-surface-hover'
-                  }`}
-                >
-                  {/* Header click bar */}
+                <div key={refl.id} className="space-y-3 pt-1">
+                  {/* Header click bar (Sticky) */}
                   <div
                     onClick={() => toggleExpand(refl.id)}
-                    className="p-4 flex items-center justify-between gap-3 cursor-pointer select-none"
+                    className="sticky top-0 z-10 bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border rounded-2xl p-4 flex items-center justify-between gap-3 cursor-pointer select-none transition-all duration-200 shadow-md group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border transition-all ${
-                        isExpanded ? 'bg-noesis-surface-hover border-noesis-border text-noesis-text' : 'bg-noesis-bg border-noesis-border text-noesis-text'
-                      }`}>
+                      <div className="w-8 h-8 rounded-xl bg-noesis-surface border border-noesis-border flex items-center justify-center shrink-0 text-noesis-text transition-all">
                         <Sparkles className="w-4 h-4" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <h3 className="text-xs sm:text-sm font-bold text-noesis-text truncate pr-2">
+                        <h3 className="text-xs sm:text-sm font-bold text-noesis-text truncate pr-2 group-hover:text-noesis-text transition-colors">
                           {refl.title}
                         </h3>
                         <div className="flex items-center gap-1 mt-1">
@@ -416,14 +388,6 @@ export const ReflectionPage: React.FC<ReflectionPageProps> = ({ onBack }) => {
                     </div>
                     
                     <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={(e) => handleDeleteReflection(refl.id, e)}
-                        className="p-1.5 rounded-lg text-noesis-muted hover:text-noesis-text hover:bg-noesis-surface transition-all active:scale-95 cursor-pointer"
-                        title="Hapus refleksi"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
                       <div className="text-noesis-muted">
                         {isExpanded ? <ChevronUp className="w-4 h-4 text-noesis-text" /> : <ChevronDown className="w-4 h-4 text-noesis-muted" />}
                       </div>
@@ -432,22 +396,15 @@ export const ReflectionPage: React.FC<ReflectionPageProps> = ({ onBack }) => {
 
                   {/* Body expansion */}
                   {isExpanded && (
-                    <div className="px-4 pb-5 pt-1 border-t border-noesis-border space-y-4 animate-fadeIn">
+                    <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-5 shadow-xs space-y-5 animate-fadeIn">
                       
-                      {/* Reflection Type display inside detail */}
-                      <div className="flex items-center gap-2">
-                        <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${getTypeBadgeStyle(refl.type)}`}>
-                          {getTypeBadgeLabel(refl.type)}
-                        </span>
-                      </div>
-
                       {/* Observasi Kognitif */}
                       <div className="space-y-2">
                         <div className="flex items-center gap-1.5 text-xs font-bold text-noesis-muted uppercase tracking-wider">
                           <Eye className="w-3.5 h-3.5 text-noesis-muted" />
                           <span>Observasi Kognitif</span>
                         </div>
-                        <div className="bg-noesis-bg border border-noesis-border rounded-xl p-3 text-xs text-noesis-text leading-relaxed select-text">
+                        <div className="bg-noesis-bg border border-noesis-border rounded-xl p-3.5 text-xs text-noesis-text leading-relaxed select-text shadow-sm">
                           {refl.observation}
                         </div>
                       </div>

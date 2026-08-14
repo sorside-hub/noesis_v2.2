@@ -169,29 +169,28 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
   const getStrengthBadge = (strength: 'Strong' | 'Moderate' | 'Weak' | string) => {
     switch (strength) {
       case 'Strong':
-      case 'Sangat Kuat':
       case 'Kuat':
         return {
           label: 'Kuat',
-          bgColor: 'bg-noesis-surface',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-text',
+          bgColor: 'bg-green-500/10 dark:bg-green-500/20',
+          borderColor: 'border-green-500/20 dark:border-green-500/30',
+          textColor: 'text-green-600 dark:text-green-400',
         };
       case 'Moderate':
       case 'Moderat':
       case 'Sedang':
         return {
           label: 'Moderat',
-          bgColor: 'bg-noesis-surface',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-text',
+          bgColor: 'bg-amber-500/10 dark:bg-amber-500/20',
+          borderColor: 'border-amber-500/20 dark:border-amber-500/30',
+          textColor: 'text-amber-600 dark:text-amber-400',
         };
       default:
         return {
           label: 'Ringan',
-          bgColor: 'bg-noesis-surface',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-text',
+          bgColor: 'bg-neutral-500/10 dark:bg-neutral-500/20',
+          borderColor: 'border-neutral-500/20 dark:border-neutral-500/30',
+          textColor: 'text-neutral-600 dark:text-neutral-400',
         };
     }
   };
@@ -422,11 +421,11 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
         className="flex-1 overflow-y-auto px-4 py-5 flex flex-col max-w-lg mx-auto w-full pb-20 space-y-5"
       >
       {/* SECTION 1: Detail Header */}
-      <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-5 shadow-md space-y-4">
+      <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-5 shadow-md space-y-4">
         {/* Title */}
         <div className="space-y-2">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md bg-[#1C1C1C] text-neutral-300 border border-[#2A2A2A]">
+            <span className="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md bg-noesis-accent text-white border border-transparent">
               Pola Pemikiran
             </span>
             <div className={`px-2.5 py-0.5 rounded-full border text-[10px] font-semibold flex items-center gap-1 ${badge.bgColor} ${badge.borderColor} ${badge.textColor}`}>
@@ -434,14 +433,14 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
               <span>{badge.label}</span>
             </div>
           </div>
-          <h1 className="text-lg sm:text-xl font-bold text-neutral-300 leading-snug tracking-tight select-text">
+          <h1 className="text-lg sm:text-xl font-bold text-noesis-text leading-snug tracking-tight select-text">
             {pattern.title}
           </h1>
         </div>
 
         {/* Description */}
         {pattern.description && (
-          <p className="text-xs text-neutral-300 leading-relaxed bg-[#1C1C1C] border border-[#2A2A2A] p-3.5 rounded-xl">
+          <p className="text-xs text-noesis-text leading-relaxed bg-noesis-surface border border-noesis-border p-3.5 rounded-xl">
             {pattern.description}
           </p>
         )}
@@ -449,46 +448,46 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
         {/* Grid Stats Overview */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
           {/* Evidence Count */}
-          <div className="p-3 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] flex flex-col items-center justify-center text-center space-y-1">
-            <span className="text-[10px] text-neutral-300 flex items-center justify-center gap-1">
-              <Layers className="w-3 h-3 text-neutral-300" />
+          <div className="p-3 rounded-xl bg-noesis-surface border border-noesis-border flex flex-col items-center justify-center text-center space-y-1">
+            <span className="text-[10px] text-noesis-text flex items-center justify-center gap-1">
+              <Layers className="w-3 h-3 text-noesis-text" />
               <span>Evidence Count</span>
             </span>
-            <span className="text-sm font-bold text-neutral-300">
+            <span className="text-sm font-bold text-noesis-text">
               {evidenceCount} Notes
             </span>
           </div>
 
           {/* Related Topic Count */}
-          <div className="p-3 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] flex flex-col items-center justify-center text-center space-y-1">
-            <span className="text-[10px] text-neutral-300 flex items-center justify-center gap-1">
-              <Hash className="w-3 h-3 text-neutral-300" />
+          <div className="p-3 rounded-xl bg-noesis-surface border border-noesis-border flex flex-col items-center justify-center text-center space-y-1">
+            <span className="text-[10px] text-noesis-text flex items-center justify-center gap-1">
+              <Hash className="w-3 h-3 text-noesis-text" />
               <span>Related Topics</span>
             </span>
-            <span className="text-sm font-bold text-neutral-300">
+            <span className="text-sm font-bold text-noesis-text">
               {topicCount} Topik
             </span>
           </div>
 
           {/* Occurrence Count */}
-          <div className="p-3 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] flex flex-col items-center justify-center text-center space-y-1 col-span-2 sm:col-span-1">
-            <span className="text-[10px] text-neutral-300 flex items-center justify-center gap-1">
-              <Repeat className="w-3 h-3 text-neutral-300" />
+          <div className="p-3 rounded-xl bg-noesis-surface border border-noesis-border flex flex-col items-center justify-center text-center space-y-1 col-span-2 sm:col-span-1">
+            <span className="text-[10px] text-noesis-text flex items-center justify-center gap-1">
+              <Repeat className="w-3 h-3 text-noesis-text" />
               <span>Occurrence Count</span>
             </span>
-            <span className="text-sm font-bold text-neutral-300">
+            <span className="text-sm font-bold text-noesis-text">
               {occurrenceCount}x Terdeteksi
             </span>
           </div>
         </div>
 
         {/* Footer Info: Last detected */}
-        <div className="flex items-center justify-between text-[11px] text-neutral-300 pt-2 border-t border-[#2A2A2A]">
+        <div className="flex items-center justify-between text-[11px] text-noesis-text pt-2 border-t border-noesis-border">
           <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-neutral-300" />
+            <Clock className="w-3.5 h-3.5 text-noesis-text" />
             <span>Terakhir Terdeteksi:</span>
           </span>
-          <span className="font-medium text-neutral-300">
+          <span className="font-medium text-noesis-text">
             {formatDateTime(lastDetectedAt)}
           </span>
         </div>
@@ -499,24 +498,24 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
         {/* Unified Section Header & Interactive Fold Card */}
         <div
           onClick={() => setIsEvidenceExpanded((prev) => !prev)}
-          className="sticky top-0 z-10 bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A] rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
+          className="sticky top-0 z-10 bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
         >
           {/* Header Row */}
           <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="p-2 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] text-neutral-300 shrink-0">
+              <div className="p-2 rounded-xl bg-noesis-surface border border-noesis-border text-noesis-text shrink-0">
                 <FileText className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-neutral-300 group-hover:text-neutral-300 transition-colors truncate">
+              <h2 className="text-sm font-bold text-noesis-text group-hover:text-noesis-text transition-colors truncate">
                 Evidence Explorer
               </h2>
             </div>
 
             <div className="shrink-0 p-1">
               {isEvidenceExpanded ? (
-                <ChevronUp className="w-4 h-4 text-neutral-300" />
+                <ChevronUp className="w-4 h-4 text-noesis-text" />
               ) : (
-                <ChevronDown className="w-4 h-4 text-neutral-300 group-hover:text-neutral-300 transition-colors" />
+                <ChevronDown className="w-4 h-4 text-noesis-text group-hover:text-noesis-text transition-colors" />
               )}
             </div>
           </div>
@@ -527,19 +526,19 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
           <div className="space-y-3.5 animate-fadeIn">
             {/* AI Reasoning Synthesis Callout */}
             {pattern.reasoning && (
-              <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-4 space-y-2.5 shadow-sm">
-                <div className="flex items-center justify-between gap-2 border-b border-[#2A2A2A] pb-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-neutral-300">
-                    <div className="p-1.5 rounded-lg bg-[#1C1C1C] border border-[#2A2A2A]">
+              <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-4 space-y-2.5 shadow-sm">
+                <div className="flex items-center justify-between gap-2 border-b border-noesis-border pb-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-noesis-text">
+                    <div className="p-1.5 rounded-lg bg-noesis-surface border border-noesis-border">
                       <Sparkles className="w-3.5 h-3.5" />
                     </div>
                     <span>Penalaran Keterkaitan AI</span>
                   </div>
-                  <span className="text-[10px] font-semibold text-neutral-300 bg-[#1C1C1C] px-2 py-0.5 rounded-md border border-[#2A2A2A]">
+                  <span className="text-[10px] font-semibold text-noesis-text bg-noesis-surface px-2 py-0.5 rounded-md border border-noesis-border">
                     Sintesis Konteks
                   </span>
                 </div>
-                <div className="text-xs text-neutral-300 leading-relaxed pt-0.5">
+                <div className="text-xs text-noesis-text leading-relaxed pt-0.5">
                   <MarkdownRenderer
                     content={cleanReasoningText(pattern.reasoning)}
                     allNotes={allNotes}
@@ -550,12 +549,12 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
 
             {/* Loading State */}
             {loadingNotes ? (
-              <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-6 flex items-center justify-center gap-2 text-xs text-neutral-300">
-                <Loader2 className="w-4 h-4 animate-spin text-neutral-300" />
+              <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-6 flex items-center justify-center gap-2 text-xs text-noesis-text">
+                <Loader2 className="w-4 h-4 animate-spin text-noesis-text" />
                 <span>Memuat data bukti catatan...</span>
               </div>
             ) : orderedRelatedNotes.length === 0 ? (
-              <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-5 text-center text-xs text-neutral-300">
+              <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-5 text-center text-xs text-noesis-text">
                 Tidak ada catatan bukti aktif yang cocok dengan ID pada pola ini.
               </div>
             ) : (
@@ -570,49 +569,49 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
                       {/* Note Card */}
                       <div
                         onClick={() => navigate({ tab: 'vault', vaultViewState: 'detail', noteId: note.id })}
-                        className="bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A] rounded-2xl p-4 space-y-2.5 shadow-sm transition-all cursor-pointer group"
+                        className="bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border rounded-2xl p-4 space-y-2.5 shadow-sm transition-all cursor-pointer group"
                       >
                         {/* Note Card Header */}
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
-                            <span className="w-5 h-5 rounded-full bg-[#1C1C1C] border border-[#2A2A2A] text-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">
+                            <span className="w-5 h-5 rounded-full bg-noesis-surface border border-noesis-border text-noesis-text text-[10px] font-bold flex items-center justify-center shrink-0">
                               {index + 1}
                             </span>
-                            <h3 className="text-sm font-bold text-neutral-300 group-hover:text-neutral-300 transition-colors truncate">
+                            <h3 className="text-sm font-bold text-noesis-text group-hover:text-noesis-text transition-colors truncate">
                               {note.title || 'Tanpa Judul'}
                             </h3>
-                            <ExternalLink className="w-3.5 h-3.5 text-neutral-300 group-hover:text-neutral-300 transition-colors shrink-0 opacity-80" />
+                            <ExternalLink className="w-3.5 h-3.5 text-noesis-text group-hover:text-noesis-text transition-colors shrink-0 opacity-80" />
                           </div>
-                          <span className="text-[10px] uppercase font-semibold text-neutral-300 bg-[#1C1C1C] border border-[#2A2A2A] px-2 py-0.5 rounded-md shrink-0">
+                          <span className="text-[10px] uppercase font-semibold text-noesis-text bg-noesis-surface border border-noesis-border px-2 py-0.5 rounded-md shrink-0">
                             {note.category}
                           </span>
                         </div>
 
                         {/* Excerpt */}
-                        <p className="text-xs text-neutral-300 line-clamp-3 leading-relaxed pl-7">
+                        <p className="text-xs text-noesis-text line-clamp-3 leading-relaxed pl-7">
                           {stripMarkdown(note.content) || 'Tidak ada isi teks pada catatan ini.'}
                         </p>
 
                         {/* Tags & Reason why this note connects */}
-                        <div className="pl-7 pt-1 flex flex-wrap items-center justify-between gap-2 text-[10px] text-neutral-300">
+                        <div className="pl-7 pt-1 flex flex-wrap items-center justify-between gap-2 text-[10px] text-noesis-text">
                           {note.tags && note.tags.length > 0 ? (
                             <div className="flex flex-wrap gap-1">
                               {note.tags.map((tag) => (
                                 <span
                                   key={tag}
-                                  className="text-neutral-300 bg-[#1C1C1C] px-1.5 py-0.5 rounded border border-[#2A2A2A]"
+                                  className="text-noesis-text bg-noesis-surface px-1.5 py-0.5 rounded border border-noesis-border"
                                 >
                                   #{tag}
                                 </span>
                               ))}
                             </div>
                           ) : (
-                            <div className="flex items-center gap-1 text-neutral-300">
-                              <Link2 className="w-3 h-3 text-neutral-300" />
+                            <div className="flex items-center gap-1 text-noesis-text">
+                              <Link2 className="w-3 h-3 text-noesis-text" />
                               <span>Catatan Bukti #{index + 1}</span>
                             </div>
                           )}
-                          <span className="text-[10px] text-neutral-300 font-medium shrink-0">
+                          <span className="text-[10px] text-noesis-text font-medium shrink-0">
                             {formatDateToDMY(note.createdAt)}
                           </span>
                         </div>
@@ -621,12 +620,12 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
                       {/* Visual Connection Node between Notes */}
                       {nextNote && (
                         <div className="flex flex-col items-center justify-center my-0.5">
-                          <div className="w-0.5 h-3 bg-[#1C1C1C]" />
-                          <div className="flex items-center gap-1.5 px-3 py-1 bg-[#1C1C1C] border border-[#2A2A2A] rounded-full text-[10px] text-neutral-300 font-medium shadow-sm max-w-[95%] text-center">
-                            <ArrowDown className="w-3 h-3 text-neutral-300 shrink-0" />
+                          <div className="w-0.5 h-3 bg-noesis-border" />
+                          <div className="flex items-center gap-1.5 px-3 py-1 bg-noesis-bg border border-noesis-border rounded-full text-[10px] text-noesis-text font-medium shadow-sm max-w-[95%] text-center">
+                            <ArrowDown className="w-3 h-3 text-noesis-muted shrink-0" />
                             <span className="truncate">{connectionInfo}</span>
                           </div>
-                          <div className="w-0.5 h-3 bg-[#1C1C1C]" />
+                          <div className="w-0.5 h-3 bg-noesis-border" />
                         </div>
                       )}
                     </React.Fragment>
@@ -643,24 +642,24 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
         {/* Unified Section Header & Interactive Fold Card */}
         <div
           onClick={() => setIsRelationshipExpanded((prev) => !prev)}
-          className="sticky top-0 z-10 bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A] rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
+          className="sticky top-0 z-10 bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
         >
           {/* Header Row */}
           <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="p-2 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] text-neutral-300 shrink-0">
+              <div className="p-2 rounded-xl bg-noesis-surface border border-noesis-border text-noesis-text shrink-0">
                 <Network className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-neutral-300 group-hover:text-neutral-300 transition-colors truncate">
+              <h2 className="text-sm font-bold text-noesis-text group-hover:text-noesis-text transition-colors truncate">
                 Relationship Map
               </h2>
             </div>
 
             <div className="shrink-0 p-1">
               {isRelationshipExpanded ? (
-                <ChevronUp className="w-4 h-4 text-neutral-300" />
+                <ChevronUp className="w-4 h-4 text-noesis-text" />
               ) : (
-                <ChevronDown className="w-4 h-4 text-neutral-300 group-hover:text-neutral-300 transition-colors" />
+                <ChevronDown className="w-4 h-4 text-noesis-text group-hover:text-noesis-text transition-colors" />
               )}
             </div>
           </div>
@@ -668,8 +667,8 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
 
         {/* Expanded Content View */}
         {isRelationshipExpanded && (
-          <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-5 shadow-md space-y-4 animate-fadeIn">
-            <p className="text-xs text-neutral-300 leading-relaxed select-text">
+          <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-5 shadow-md space-y-4 animate-fadeIn">
+            <p className="text-xs text-noesis-text leading-relaxed select-text">
               Peta keterkaitan antar ide dan konsep terkuat yang membentuk pola ini:
             </p>
 
@@ -680,26 +679,22 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
                 return (
                   <div
                     key={index}
-                    className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl p-4 space-y-3 relative overflow-hidden"
+                    className="bg-noesis-surface border border-noesis-border rounded-xl p-4 space-y-3 relative overflow-hidden"
                   >
                     {/* Meta Header */}
                     <div className="flex items-center justify-between text-[10px]">
-                      <span className="text-neutral-300 font-medium flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 text-neutral-300" />
+                      <span className="text-noesis-text font-medium flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-noesis-text" />
                         <span>{pair.relationType}</span>
                       </span>
                       <div className="flex items-center gap-2">
-                        <span className="text-neutral-300 font-mono">
+                        <span className="text-noesis-text font-mono">
                           Score: {Math.round(pair.similarityScore * 100)}%
                         </span>
                         <span
-                          className={`px-2 py-0.5 rounded-md font-bold text-[9px] border ${
-                            isStrong
-                              ? 'bg-[#1C1C1C] border-[#2A2A2A] text-neutral-300'
-                              : 'bg-[#1C1C1C] border-[#2A2A2A] text-neutral-300'
-                          }`}
+                          className={`px-2 py-0.5 rounded-md font-bold text-[9px] border ${getStrengthBadge(pair.strength).bgColor} ${getStrengthBadge(pair.strength).borderColor} ${getStrengthBadge(pair.strength).textColor}`}
                         >
-                          {pair.strength}
+                          {getStrengthBadge(pair.strength).label}
                         </span>
                       </div>
                     </div>
@@ -711,22 +706,22 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
                         <button
                           type="button"
                           onClick={() => navigate({ tab: 'vault', vaultViewState: 'detail', noteId: pair.noteAId })}
-                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A]/60 text-xs font-bold text-neutral-300 hover:text-neutral-300 transition-all cursor-pointer group/node"
+                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border text-xs font-bold text-noesis-text hover:text-noesis-text transition-all cursor-pointer group/node"
                           title="Buka detail catatan"
                         >
                           <span className="truncate flex-1 text-left">
                             {pair.conceptA}
                           </span>
-                          <ExternalLink className="w-3.5 h-3.5 text-neutral-300 group-hover/node:text-neutral-300 transition-colors shrink-0 ml-2" />
+                          <ExternalLink className="w-3.5 h-3.5 text-noesis-text group-hover/node:text-noesis-text transition-colors shrink-0 ml-2" />
                         </button>
                       ) : (
-                        <div className="w-full text-center px-3 py-2 rounded-lg bg-[#1C1C1C] border border-[#2A2A2A] text-xs font-bold text-neutral-300 truncate">
+                        <div className="w-full text-center px-3 py-2 rounded-lg bg-noesis-surface border border-noesis-border text-xs font-bold text-noesis-text truncate">
                           {pair.conceptA}
                         </div>
                       )}
 
                       {/* Vertical Connector Arrow */}
-                      <div className="flex items-center gap-1 text-neutral-300 py-0.5">
+                      <div className="flex items-center gap-1 text-noesis-text py-0.5">
                         <ArrowUpDown className="w-4 h-4 animate-pulse shrink-0" />
                       </div>
 
@@ -735,16 +730,16 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
                         <button
                           type="button"
                           onClick={() => navigate({ tab: 'vault', vaultViewState: 'detail', noteId: pair.noteBId })}
-                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A]/60 text-xs font-bold text-neutral-300 hover:text-neutral-300 transition-all cursor-pointer group/node"
+                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border text-xs font-bold text-noesis-text hover:text-noesis-text transition-all cursor-pointer group/node"
                           title="Buka detail catatan"
                         >
                           <span className="truncate flex-1 text-left">
                             {pair.conceptB}
                           </span>
-                          <ExternalLink className="w-3.5 h-3.5 text-neutral-300 group-hover/node:text-neutral-300 transition-colors shrink-0 ml-2" />
+                          <ExternalLink className="w-3.5 h-3.5 text-noesis-text group-hover/node:text-noesis-text transition-colors shrink-0 ml-2" />
                         </button>
                       ) : (
-                        <div className="w-full text-center px-3 py-2 rounded-lg bg-[#1C1C1C] border border-[#2A2A2A] text-xs font-bold text-neutral-300 truncate">
+                        <div className="w-full text-center px-3 py-2 rounded-lg bg-noesis-surface border border-noesis-border text-xs font-bold text-noesis-text truncate">
                           {pair.conceptB}
                         </div>
                       )}
@@ -762,24 +757,24 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
         {/* Unified Section Header & Interactive Fold Card */}
         <div
           onClick={() => setIsTimelineExpanded((prev) => !prev)}
-          className="sticky top-0 z-10 bg-[#1C1C1C] hover:bg-[#242424] border border-[#2A2A2A] hover:border-[#2A2A2A] rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
+          className="sticky top-0 z-10 bg-noesis-surface hover:bg-noesis-surface-hover border border-noesis-border hover:border-noesis-border rounded-2xl p-3.5 cursor-pointer transition-all duration-200 shadow-md group"
         >
           {/* Header Row */}
           <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="p-2 rounded-xl bg-[#1C1C1C] border border-[#2A2A2A] text-neutral-300 shrink-0">
+              <div className="p-2 rounded-xl bg-noesis-surface border border-noesis-border text-noesis-text shrink-0">
                 <History className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-neutral-300 group-hover:text-neutral-300 transition-colors truncate">
+              <h2 className="text-sm font-bold text-noesis-text group-hover:text-noesis-text transition-colors truncate">
                 Evolution Timeline
               </h2>
             </div>
 
             <div className="shrink-0 p-1">
               {isTimelineExpanded ? (
-                <ChevronUp className="w-4 h-4 text-neutral-300" />
+                <ChevronUp className="w-4 h-4 text-noesis-text" />
               ) : (
-                <ChevronDown className="w-4 h-4 text-neutral-300 group-hover:text-neutral-300 transition-colors" />
+                <ChevronDown className="w-4 h-4 text-noesis-text group-hover:text-noesis-text transition-colors" />
               )}
             </div>
           </div>
@@ -787,24 +782,24 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
 
         {/* Expanded Content View */}
         {isTimelineExpanded && (
-          <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl p-5 shadow-md space-y-4 animate-fadeIn">
-            <p className="text-xs text-neutral-300 leading-relaxed select-text">
+          <div className="bg-noesis-surface border border-noesis-border rounded-2xl p-5 shadow-md space-y-4 animate-fadeIn">
+            <p className="text-xs text-noesis-text leading-relaxed select-text">
               Perjalanan evolusi dan perkembangan ide yang membentuk pola ini dari waktu ke waktu:
             </p>
 
             <div className="relative space-y-3.5 pt-1">
               {/* STEP 1: First Detected */}
-              <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl p-4 space-y-2 relative">
+              <div className="bg-noesis-surface border border-noesis-border rounded-xl p-4 space-y-2 relative">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#1C1C1C] shadow-[0_0_8px_rgba(52,199,89,0.5)] shrink-0" />
-                    <span className="text-xs font-bold text-neutral-300">First Detected</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] shrink-0" />
+                    <span className="text-xs font-bold text-noesis-text">First Detected</span>
                   </div>
-                  <span className="text-[10px] text-neutral-300 font-mono">
+                  <span className="text-[10px] text-noesis-text font-mono">
                     {formatDateTime(pattern.firstDetectedAt || pattern.createdAt)}
                   </span>
                 </div>
-                <p className="text-xs text-neutral-300 leading-relaxed pl-4">
+                <p className="text-xs text-noesis-text leading-relaxed pl-4">
                   Pattern pertama kali ditemukan dari beberapa catatan yang memiliki hubungan semantik.
                 </p>
               </div>
@@ -813,32 +808,32 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
               {historyRecords.map((record, index) => (
                 <React.Fragment key={record.id || index}>
                   {/* Connector Arrow */}
-                  <div className="flex justify-center my-1 text-neutral-300">
+                  <div className="flex justify-center my-1 text-noesis-text">
                     <ArrowDown className="w-4 h-4 animate-pulse" />
                   </div>
 
-                  <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl p-4 space-y-2 relative">
+                  <div className="bg-noesis-surface border border-noesis-border rounded-xl p-4 space-y-2 relative">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#1C1C1C] shadow-[0_0_8px_rgba(79,140,255,0.5)] shrink-0" />
-                        <span className="text-xs font-bold text-neutral-300">
+                        <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] shrink-0" />
+                        <span className="text-xs font-bold text-noesis-text">
                           {record.changeType === 'MERGED_PATTERN'
                             ? 'Pattern Merged'
                             : 'Pattern Updated'}
                         </span>
                       </div>
-                      <span className="text-[10px] text-neutral-300 font-mono">
+                      <span className="text-[10px] text-noesis-text font-mono">
                         {formatDateTime(record.archivedAt || record.createdAt)}
                       </span>
                     </div>
 
-                    <p className="text-xs text-neutral-300 leading-relaxed pl-4">
+                    <p className="text-xs text-noesis-text leading-relaxed pl-4">
                       {record.changeSummary ||
                         'Pattern berkembang karena ada catatan baru yang memperkuat hubungan.'}
                     </p>
 
-                    <div className="pl-4 pt-1 flex items-center justify-between text-[10px] text-neutral-300">
-                      <span className="bg-[#1C1C1C] px-2 py-0.5 rounded border border-[#2A2A2A]">
+                    <div className="pl-4 pt-1 flex items-center justify-between text-[10px] text-noesis-text">
+                      <span className="bg-noesis-surface px-2 py-0.5 rounded border border-noesis-border">
                         {record.evidenceCount} Catatan Bukti
                       </span>
                     </div>
@@ -850,21 +845,21 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
               {historyRecords.length === 0 && (
                 <React.Fragment>
                   {/* Connector Arrow */}
-                  <div className="flex justify-center my-1 text-neutral-300">
+                  <div className="flex justify-center my-1 text-noesis-text">
                     <ArrowDown className="w-4 h-4 animate-pulse" />
                   </div>
 
-                  <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl p-4 space-y-2 relative">
+                  <div className="bg-noesis-surface border border-noesis-border rounded-xl p-4 space-y-2 relative">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#1C1C1C] shadow-[0_0_8px_rgba(79,140,255,0.5)] shrink-0" />
-                        <span className="text-xs font-bold text-neutral-300">Pattern Updated</span>
+                        <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] shrink-0" />
+                        <span className="text-xs font-bold text-noesis-text">Pattern Updated</span>
                       </div>
-                      <span className="text-[10px] text-neutral-300 font-mono">
+                      <span className="text-[10px] text-noesis-text font-mono">
                         {formatDateTime(lastDetectedAt)}
                       </span>
                     </div>
-                    <p className="text-xs text-neutral-300 leading-relaxed pl-4">
+                    <p className="text-xs text-noesis-text leading-relaxed pl-4">
                       Pattern berkembang karena ada catatan baru yang memperkuat hubungan.
                     </p>
                   </div>
@@ -872,34 +867,34 @@ export const ThinkingPatternDetailPage: React.FC<ThinkingPatternDetailPageProps>
               )}
 
               {/* Connector Arrow to Current Pattern */}
-              <div className="flex justify-center my-1 text-neutral-300">
+              <div className="flex justify-center my-1 text-noesis-text">
                 <ArrowDown className="w-4 h-4 animate-pulse" />
               </div>
 
               {/* STEP FINAL: Current Pattern */}
-              <div className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl p-4 space-y-3 relative shadow-sm">
+              <div className="bg-noesis-surface border border-noesis-border rounded-xl p-4 space-y-3 relative shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#1C1C1C] shadow-[0_0_8px_rgba(191,90,242,0.5)] shrink-0" />
-                    <span className="text-xs font-bold text-neutral-300">Current Pattern</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)] shrink-0" />
+                    <span className="text-xs font-bold text-noesis-text">Current Pattern</span>
                   </div>
-                  <span className="text-[10px] text-neutral-300 font-mono">
+                  <span className="text-[10px] text-noesis-text font-mono">
                     {formatDateTime(lastDetectedAt)}
                   </span>
                 </div>
 
-                <div className="bg-[#1C1C1C] border border-[#2A2A2A] p-3 rounded-lg space-y-2 ml-4">
-                  <p className="text-xs font-bold text-neutral-300">
+                <div className="bg-noesis-surface border border-noesis-border p-3 rounded-lg space-y-2 ml-4">
+                  <p className="text-xs font-bold text-noesis-text">
                     {pattern.title}
                   </p>
-                  <div className="grid grid-cols-2 gap-2 text-[11px] pt-1 border-t border-[#2A2A2A]">
-                    <div className="flex items-center gap-1.5 text-neutral-300">
-                      <Layers className="w-3.5 h-3.5 text-neutral-300" />
-                      <span>Evidence count: <strong className="text-neutral-300">{evidenceCount} Notes</strong></span>
+                  <div className="grid grid-cols-2 gap-2 text-[11px] pt-1 border-t border-noesis-border">
+                    <div className="flex items-center gap-1.5 text-noesis-text">
+                      <Layers className="w-3.5 h-3.5 text-noesis-text" />
+                      <span>Evidence count: <strong className="text-noesis-text">{evidenceCount} Notes</strong></span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-neutral-300">
-                      <Repeat className="w-3.5 h-3.5 text-neutral-300" />
-                      <span>Occurrence count: <strong className="text-neutral-300">{occurrenceCount}x</strong></span>
+                    <div className="flex items-center gap-1.5 text-noesis-text">
+                      <Repeat className="w-3.5 h-3.5 text-noesis-text" />
+                      <span>Occurrence count: <strong className="text-noesis-text">{occurrenceCount}x</strong></span>
                     </div>
                   </div>
                 </div>

@@ -72,7 +72,7 @@ export const AutoCorrectModal: React.FC<AutoCorrectModalProps> = ({
               onClick={() => setActiveTab('corrected')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'corrected'
-                  ? 'bg-noesis-text text-noesis-bg shadow-xs'
+                  ? 'bg-noesis-accent text-white shadow-xs'
                   : 'text-noesis-muted hover:text-noesis-text'
               }`}
             >
@@ -84,7 +84,7 @@ export const AutoCorrectModal: React.FC<AutoCorrectModalProps> = ({
               onClick={() => setActiveTab('original')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'original'
-                  ? 'bg-noesis-surface-hover text-noesis-text shadow-xs'
+                  ? 'bg-noesis-accent text-white shadow-xs'
                   : 'text-noesis-muted hover:text-noesis-text'
               }`}
             >
@@ -142,7 +142,7 @@ export const AutoCorrectModal: React.FC<AutoCorrectModalProps> = ({
             <button
               type="button"
               onClick={handleApplyClick}
-              className="px-5 py-2 bg-noesis-text hover:opacity-90 active:scale-95 text-noesis-bg font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md min-w-[90px]"
+              className="px-5 py-2 bg-noesis-accent hover:bg-noesis-accent-hover active:scale-95 text-white font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md min-w-[90px]"
             >
               <Check className="w-4 h-4" />
               <span>Apply</span>

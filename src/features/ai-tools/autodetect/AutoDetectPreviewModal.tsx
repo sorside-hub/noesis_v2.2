@@ -190,7 +190,7 @@ export const AutoDetectPreviewModal: React.FC<AutoDetectPreviewModalProps> = ({
               onApply(result);
               onClose();
             }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-noesis-text hover:opacity-90 text-noesis-bg shadow-md transition-all cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-noesis-accent hover:bg-noesis-accent-hover text-white shadow-md transition-all cursor-pointer"
           >
             <Check className="w-4 h-4" />
             <span>Apply</span>

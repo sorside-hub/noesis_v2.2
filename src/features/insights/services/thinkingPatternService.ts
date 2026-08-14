@@ -386,8 +386,7 @@ const MAX_CLUSTER_SIZE = 6; // Cap cluster size to prevent oversized clusters
 const MAX_CONTEXT_REPRESENTATIVE_NOTES = 30; // Max representative note snippets sent in context payload
 const MAX_TOTAL_SNIPPET_CHARS = 10000; // Max total character budget for note content in prompt
 
-function getStrengthLabel(sim: number): 'Sangat Kuat' | 'Kuat' | 'Moderat' {
-  if (sim >= 0.70) return 'Sangat Kuat';
+function getStrengthLabel(sim: number): 'Kuat' | 'Moderat' {
   if (sim >= 0.55) return 'Kuat';
   return 'Moderat';
 }
@@ -425,7 +424,7 @@ export interface SemanticConnection {
   sourceTitle: string;
   targetTitle: string;
   similarityScore: number;
-  strengthLabel: 'Sangat Kuat' | 'Kuat' | 'Moderat';
+  strengthLabel: 'Kuat' | 'Moderat';
 }
 
 export interface OrganicKnowledgeContext {

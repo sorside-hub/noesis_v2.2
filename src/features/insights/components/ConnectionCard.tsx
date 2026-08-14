@@ -13,6 +13,16 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
 }) => {
   const strengthPercent = Math.round(connection.strength * 100);
 
+  const getStrengthColorClass = (percent: number) => {
+    if (percent >= 75) {
+      return 'bg-green-500/10 border-green-500/20 text-green-600 dark:bg-green-500/20 dark:border-green-500/30 dark:text-green-400 font-semibold';
+    } else if (percent >= 50) {
+      return 'bg-amber-500/10 border-amber-500/20 text-amber-600 dark:bg-amber-500/20 dark:border-amber-500/30 dark:text-amber-400 font-medium';
+    } else {
+      return 'bg-neutral-500/10 border-neutral-500/20 text-neutral-600 dark:bg-neutral-500/20 dark:border-neutral-500/30 dark:text-neutral-400';
+    }
+  };
+
   // Calculate themes count and notes count across source and target entities
   const themeCount =
     (connection.sourceType === 'theme' ? connection.sourceIds.length : 0) +
@@ -70,8 +80,8 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
         </div>
 
         {/* Strength Badge */}
-        <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-noesis-bg border border-noesis-border text-noesis-text text-[10px] font-semibold">
-          <Activity className="w-3 h-3 text-noesis-muted" />
+        <div className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border text-[10px] ${getStrengthColorClass(strengthPercent)}`}>
+          <Activity className="w-3 h-3 opacity-80" />
           <span>Strength: {strengthPercent}%</span>
         </div>
       </div>

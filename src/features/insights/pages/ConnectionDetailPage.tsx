@@ -202,6 +202,16 @@ export const ConnectionDetailPage: React.FC<ConnectionDetailPageProps> = ({
   const strengthPercent = connection ? Math.round(connection.strength * 100) : 0;
   const isBridge = connection?.connectionType === 'theme_bridge';
 
+  const getStrengthColorClass = (percent: number) => {
+    if (percent >= 75) {
+      return 'bg-green-500/10 border-green-500/20 text-green-600 dark:bg-green-500/20 dark:border-green-500/30 dark:text-green-400';
+    } else if (percent >= 50) {
+      return 'bg-amber-500/10 border-amber-500/20 text-amber-600 dark:bg-amber-500/20 dark:border-amber-500/30 dark:text-amber-400';
+    } else {
+      return 'bg-neutral-500/10 border-neutral-500/20 text-neutral-600 dark:bg-neutral-500/20 dark:border-neutral-500/30 dark:text-neutral-400';
+    }
+  };
+
   const formattedDate = connection?.createdAt
     ? formatDateToDMY(connection.createdAt)
     : '-';
@@ -278,8 +288,8 @@ export const ConnectionDetailPage: React.FC<ConnectionDetailPageProps> = ({
                 )}
 
                 {/* Strength Percentage */}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-noesis-bg border border-noesis-border text-noesis-text text-xs font-semibold">
-                  <Activity className="w-3.5 h-3.5 text-noesis-muted" />
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${getStrengthColorClass(strengthPercent)}`}>
+                  <Activity className="w-3.5 h-3.5 opacity-80" />
                   <span>Kekuatan Semantik: {strengthPercent}%</span>
                 </span>
               </div>

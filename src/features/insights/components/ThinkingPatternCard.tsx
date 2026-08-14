@@ -16,29 +16,28 @@ export const ThinkingPatternCard: React.FC<ThinkingPatternCardProps> = ({ patter
   const getStrengthBadge = (strength: 'Strong' | 'Moderate' | 'Weak' | string) => {
     switch (strength) {
       case 'Strong':
-      case 'Sangat Kuat':
       case 'Kuat':
         return {
           label: 'Kuat',
-          bgColor: 'bg-noesis-surface-hover',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-text font-semibold',
+          bgColor: 'bg-green-500/10 dark:bg-green-500/20',
+          borderColor: 'border-green-500/20 dark:border-green-500/30',
+          textColor: 'text-green-600 dark:text-green-400 font-semibold',
         };
       case 'Moderate':
       case 'Moderat':
       case 'Sedang':
         return {
           label: 'Moderat',
-          bgColor: 'bg-noesis-surface',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-muted font-medium',
+          bgColor: 'bg-amber-500/10 dark:bg-amber-500/20',
+          borderColor: 'border-amber-500/20 dark:border-amber-500/30',
+          textColor: 'text-amber-600 dark:text-amber-400 font-medium',
         };
       default:
         return {
           label: 'Ringan',
-          bgColor: 'bg-noesis-bg',
-          borderColor: 'border-noesis-border',
-          textColor: 'text-noesis-muted',
+          bgColor: 'bg-neutral-500/10 dark:bg-neutral-500/20',
+          borderColor: 'border-neutral-500/20 dark:border-neutral-500/30',
+          textColor: 'text-neutral-600 dark:text-neutral-400',
         };
     }
   };
